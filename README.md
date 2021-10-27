@@ -1,7 +1,7 @@
 # ARMA_LED
 This is a simple Arduino sketch that can be controlled from the TEST_ARMACOM.vr mission in ARMA 3
 
-With this sketch, a connected Arduino's built-in LED can be turned on or off by sending it the Serial string "on" or "off"
+With this sketch, a connected Arduino's built-in LED can be turned on or off by sending it the Serial string "on" or "off". The Arduino will also send out a message when a button connected between pin 12 and ground is pressed.
 
 You can control an Arduino running this sketch from this ARMA mission: https://github.com/FatLurch/TEST_ARMACOM.vr/tree/main
 
