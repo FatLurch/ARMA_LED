@@ -9,16 +9,22 @@
  * 
  * Now type "on" to turn the built-in LED on or type "off" to turn the built-in LED off
  * 
+ * Additionally, once connected, this sketch will send "Button Pressed!" to the Serial port when the button on pin 12 is pressed
+ * 
  */
 
 String readString;
-char buff[100];
+char buff[100];               //100 character buffer
+const int buttonPin = 12;    // the number of the pushbutton pin
+int buttonState = 0;         // variable for reading the pushbutton status
 
 void setup() 
 {
 
-  // Set encoder pins as inputs
+  // Set encoder pins 
   pinMode(LED_BUILTIN, OUTPUT);       //Most Arduinos should have an LED_BUILTIN. Tested with Uno
+  pinMode(buttonPin, INPUT_PULLUP); 
+  
   digitalWrite(LED_BUILTIN, LOW);     //Turn the LED off by default
 
   // Setup Serial Monitor
@@ -27,6 +33,14 @@ void setup()
 
 void loop() 
 {
+  //========== Button press ===========================
+  buttonState = !(digitalRead(buttonPin));  //The ! character inverts the input. This is important since we're using INPUT_PULLUP as the pinMode
+  
+  if (buttonState == HIGH) {
+    Serial.println("Button pressed!");
+    delay(300);
+  }
+  
   //========== Handle serial input ====================
   while (Serial.available()) 
     {
