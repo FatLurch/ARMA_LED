@@ -15,7 +15,7 @@
 
 String readString;
 char buff[100];               //100 character buffer
-const int buttonPin = 12;    // the number of the pushbutton pin
+const int buttonPin = 12;    // the number of the pushbutton pin. The other pin of the button goes to ground
 int buttonState = 0;         // variable for reading the pushbutton status
 
 void setup() 
